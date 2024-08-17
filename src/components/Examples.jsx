@@ -1,6 +1,7 @@
 //react executes a component function only once, TabButton code is thus reevaluated using UseState
 import {useState} from 'react'; //react hook
 import TabButton from './TabButton.jsx';
+import Section from './Section.jsx';
 import {EXAMPLES} from '../data.js'
 
 export default function Examples(){
@@ -32,27 +33,26 @@ export default function Examples(){
   }
 
     return (
-        <section id="examples">
-        <h2>Examples</h2>
+        <Section title="Examples" id="examples">
         <menu>
           <TabButton isSelected = {selectedTopic === 'components'} //links to TabButton.jsx, checks if tab is selected then indicates as such
-          onSelect={() => handleSelect('components')}
+          onClick={() => handleSelect('components')}
           >Components
           </TabButton>
           <TabButton isSelected = {selectedTopic === 'jsx'}
-          onSelect={() => handleSelect('jsx')}
+          onClick={() => handleSelect('jsx')}
           >JSX
           </TabButton>
           <TabButton isSelected = {selectedTopic === 'props'}
-          onSelect={() => handleSelect('props')}
+          onClick={() => handleSelect('props')}
           >Props
           </TabButton>
           <TabButton isSelected = {selectedTopic === 'state'}
-          onSelect={() => handleSelect('state')}
+          onClick={() => handleSelect('state')}
           >State
           </TabButton>
         </menu>
         {tabContent}
-      </section>
+      </Section>
     )
 }
