@@ -10,9 +10,7 @@ import {EXAMPLES} from './data-with-examples.js';
 //useState hook (tells react that this component function must be executed again)
 //constant, used repeatedly
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState(); //useState is empty, because initial state is 'no selected' tab
-
-
+  const [ selectedTopic, setSelectedTopic ] = useState(); //useState is empty, because initial state is unselected tab
   function handleSelect(selectedButton){
     //selectedButton => 'components', 'jsx', 'props', 'state'
     setSelectedTopic(selectedButton);
@@ -58,10 +56,22 @@ if (selectedTopic){
       <section id="examples">
         <h2>Examples</h2>
         <menu>
-          <TabButton onSelect={() => handleSelect('components')}>Components</TabButton>
-          <TabButton onSelect={() => handleSelect('jsx')}>JSX</TabButton>
-          <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
-          <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
+          <TabButton isSelected = {selectedTopic === 'components'} //links to TabButton.jsx, checks if tab is selected then indicates as such
+          onSelect={() => handleSelect('components')}
+          >Components
+          </TabButton>
+          <TabButton isSelected = {selectedTopic === 'jsx'}
+          onSelect={() => handleSelect('jsx')}
+          >JSX
+          </TabButton>
+          <TabButton isSelected = {selectedTopic === 'props'}
+          onSelect={() => handleSelect('props')}
+          >Props
+          </TabButton>
+          <TabButton isSelected = {selectedTopic === 'state'}
+          onSelect={() => handleSelect('state')}
+          >State
+          </TabButton>
         </menu>
         {tabContent}
       </section>
