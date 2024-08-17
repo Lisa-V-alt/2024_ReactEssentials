@@ -37,7 +37,7 @@ if (selectedTopic){
 
 //imported props used below.
   return (
-    <div>
+    <>
     <Header/>
       <main>
       <section id="core-concepts">
@@ -81,7 +81,7 @@ if (selectedTopic){
         {tabContent}
       </section>
       </main>
-    </div>
+    </>
   );
 }
 export default App;
