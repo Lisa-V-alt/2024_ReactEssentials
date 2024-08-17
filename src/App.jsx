@@ -5,11 +5,12 @@ import { CORE_CONCEPTS } from './data.js';
 import Header from './components/Header/Header.jsx';
 import CoreConcept from './components/CoreConcept.jsx';
 import TabButton from './components/TabButton.jsx';
+import {EXAMPLES} from './data-with-examples.js';
 
 //useState hook (tells react that this component function must be executed again)
 //constant, used repeatedly
 function App() {
-  const [ selectedTopic, setSelectedTopic ] = useState('Please click a button');
+  const [ selectedTopic, setSelectedTopic ] = useState('components'); //initial state is components tab
 
 
   function handleSelect(selectedButton){
@@ -47,7 +48,15 @@ console.log('APP COMPONENT EXECUTING'); //logs in console, checks if buttons fun
           <TabButton onSelect={() => handleSelect('props')}>Props</TabButton>
           <TabButton onSelect={() => handleSelect('state')}>State</TabButton>
         </menu>
-        {selectedTopic} {/*links to useState Array */}
+        <div id="tab-content">
+          <h3>{EXAMPLES[selectedTopic].title}</h3>
+          <p>{EXAMPLES[selectedTopic].description}</p>
+          <pre>
+            <code>
+              {EXAMPLES[selectedTopic].code}
+            </code>
+          </pre>
+        </div>
       </section>
       </main>
     </div>
