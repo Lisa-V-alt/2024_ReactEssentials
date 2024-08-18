@@ -35,7 +35,9 @@ export default function Examples(){
 
     return (
         <Section title="Examples" id="examples">
-        <Tabs buttons={
+        <Tabs
+        //ButtonsContainer="menu" //custom components: {Section}, built-in: "menu"
+        buttons={
           <>
           <TabButton isSelected = {selectedTopic === 'components'} //links to TabButton.jsx, checks if tab is selected then indicates as such
           onClick={() => handleSelect('components')}
