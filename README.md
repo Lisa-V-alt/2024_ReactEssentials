@@ -5,4 +5,4 @@
 ❤ CSS styling, dynamic styling / 'Interactive' UIs
 ❤ Management of state & the use of Hooks, & the deriving & outputting of data based on its state (Conditional content)
 ❤ Forwarding of props to wrapped elements
-❤ Flexible components that support different styles & modes
+❤ Flexible components able to support different styles & modes
