@@ -2,7 +2,8 @@
 import {useState} from 'react'; //react hook
 import TabButton from './TabButton.jsx';
 import Section from './Section.jsx';
-import {EXAMPLES} from '../data.js'
+import Tabs from './Tabs.jsx';
+import {EXAMPLES} from '../data.js';
 
 export default function Examples(){
     //useState hook (tells react that this component function must be executed again)
@@ -34,7 +35,8 @@ export default function Examples(){
 
     return (
         <Section title="Examples" id="examples">
-        <menu>
+        <Tabs buttons={
+          <>
           <TabButton isSelected = {selectedTopic === 'components'} //links to TabButton.jsx, checks if tab is selected then indicates as such
           onClick={() => handleSelect('components')}
           >Components
@@ -51,8 +53,10 @@ export default function Examples(){
           onClick={() => handleSelect('state')}
           >State
           </TabButton>
-        </menu>
+          </>
+        }>
         {tabContent}
+        </Tabs>
       </Section>
     )
 }
